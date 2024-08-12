@@ -3,17 +3,52 @@
 #include<vector>
 #include<cmath>
 #include"rune_detect.h"
+#include<string>
 using namespace std;
 using namespace cv;
 
 //整体思路：
 
 const double PI = 3.1415926;
-int contour_min_area = 1000;
+int contour_min_area = 400;
+const Scalar contours_scalar = Scalar(200,100,0);
+const int contours_thickness = 3;
 
 void contour_min_area_back(int,void*)
 {
 }
+
+Point2f getPointsCenter(vector<Point> points)
+{
+    double center_x = 0;
+    double center_y = 0;
+    double P = 1.0 / points.size();
+    for(auto&& point:points)
+    {
+        center_x += point.x * P;
+        center_y += point.y * P;
+    }
+    Point2f center(center_x,center_y);
+    return center;
+}
+
+void drawPoints(Mat src,vector<Point> points)
+{
+    int points_size = points.size();
+    Point last_point = points[points_size -1];
+    for(auto&& point:points)
+    {
+        line(src,last_point,point,contours_scalar,contours_thickness);
+        last_point = point;
+    }
+}
+
+void drawPoints(Mat src,Point2f points[],int len)
+{
+    vector<Point> vpoints(points,points + len);
+    drawPoints(src,vpoints);
+}
+
 
 
 //进行预处理、转化为二值化图像。
@@ -32,12 +67,12 @@ Mat img_Init1(Mat src)
 }
 
 //检测二值化图像中的轮廓
-Mat getContours(Mat src)
+void getContours(Mat src,Mat src_show)
 {
+    Mat img_getContours_show = src_show.clone();
     vector<vector<Point>> contours;
     vector<Vec4i> hierarchy;
     findContours(src,contours,hierarchy,RETR_TREE,CHAIN_APPROX_SIMPLE); //获取到所有轮廓
-    Mat contours_show = Mat::zeros(src.size(),CV_8UC3);
     vector<vector<Point>> circleCenters;
     vector<vector<Point>> good_contours;
     for(auto& contour:contours)
@@ -50,22 +85,33 @@ Mat getContours(Mat src)
         {
             continue;
         }
-        if(0.7 < P && P <1.3)   //如果该轮廓是圆形，就把这个轮廓转移到circle中。并舍弃该轮廓
+        else if(0.6 < P && P <1.5)   //如果该轮廓是圆形，就把这个轮廓转移到circle中。并舍弃该轮廓
         {
             circleCenters.push_back(contour);
-            cout << "Area1 = " <<Area1 <<" ";
-            cout << "Area2 = " <<Area2 <<endl;
-            cout << "P = " << P <<endl;
-            continue;   
+            
+            Point2f center = getPointsCenter(contour);
+            //显示圆心的位置
+            circle(img_getContours_show,center,4,Scalar(50,200,50),-1);
+            continue;      
         }
-        good_contours.push_back(contour);
+        else 
+        {
+            //判断合格的轮廓，进行最小矩形拟合。
+            RotatedRect rrt = minAreaRect(contour);
+            Point2f points[4];
+            rrt.points(points);
+            drawPoints(img_getContours_show,points,4);
+
+            //在矩形的中心位置标记P值
+            // putText(img_getContours_show,to_string(P),rrt.center,FONT_HERSHEY_SIMPLEX,0.3,Scalar(0,100,200),0.3);
+
+            good_contours.push_back(contour);
+        }
     }
-    drawContours(contours_show,good_contours,-1,Scalar(200,100,0),1);
-    imshow("contours_show",contours_show);
 
+    drawContours(img_getContours_show,good_contours,-1,Scalar(200,100,0),1);
+    imshow("img_getContours_show",img_getContours_show);
     //进行最小面积矩形拟合
-
-    return contours_show;
 }
 
 
@@ -74,9 +120,10 @@ int main()
     VideoCapture vid;
     vid.open("/home/yefan/桌面/神符检验.avi");
     Mat img;
-    Mat dst;
-    namedWindow("contours_show",WINDOW_AUTOSIZE);
-    createTrackbar("contour_min_area","contours_show",&contour_min_area,2000);
+    Mat img_init;
+    Mat img_contours_show;
+    namedWindow("img_getContours_show",WINDOW_AUTOSIZE);
+    createTrackbar("contour_min_area","img_getContours_show",&contour_min_area,2000);
     rune_delete rd(70);
     rd.show();
 
@@ -87,17 +134,12 @@ int main()
         if(img.empty())
             break;
         imshow("img",img);
-        dst = img_Init1(img);
-        imshow("dst",dst);
-        Mat contours_show = getContours(dst);
-        contours_show += img;
-        // imshow("contours_show",contours_show);
+        img_init = img_Init1(img);
+        imshow("img_init",img_init);
+        img_contours_show = Mat::zeros(img_init.size(),img.type());
+        getContours(img_init,img_contours_show);
         if(waitKey(10) == 'q')break;
     }
-    cout << "233" <<endl;
-    cout << "视频播放完毕"<<endl;
-    cout << "git测试" <<endl;
-
     waitKey(0);
     return 0;
 }
