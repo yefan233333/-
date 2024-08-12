@@ -94,8 +94,9 @@ int main()
         // imshow("contours_show",contours_show);
         if(waitKey(10) == 'q')break;
     }
-
+    cout << "233" <<endl;
     cout << "视频播放完毕"<<endl;
+    cout << "git测试" <<endl;
 
     waitKey(0);
     return 0;
