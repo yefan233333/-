@@ -77,7 +77,7 @@ int main()
     Mat dst;
     namedWindow("contours_show",WINDOW_AUTOSIZE);
     createTrackbar("contour_min_area","contours_show",&contour_min_area,2000);
-    rune_delete rd(50);
+    rune_delete rd(70);
     rd.show();
 
     
