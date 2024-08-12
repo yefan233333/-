@@ -1,0 +1,3 @@
+/home/yefan/OpenCVProject/神符检验/build/CMakeFiles/main.dir
+/home/yefan/OpenCVProject/神符检验/build/CMakeFiles/edit_cache.dir
+/home/yefan/OpenCVProject/神符检验/build/CMakeFiles/rebuild_cache.dir
