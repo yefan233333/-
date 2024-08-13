@@ -7,7 +7,7 @@
 using namespace std;
 using namespace cv;
 
-//整体思路：
+
 
 const double PI = 3.1415926;
 int contour_min_area = 400;
@@ -20,15 +20,13 @@ void contour_min_area_back(int,void*)
 
 Point2f getPointsCenter(vector<Point> points)
 {
-    double center_x = 0;
-    double center_y = 0;
+    Point2f center(0,0);
     double P = 1.0 / points.size();
     for(auto&& point:points)
     {
-        center_x += point.x * P;
-        center_y += point.y * P;
+        center += (Point2f)point * P;
     }
-    Point2f center(center_x,center_y);
+
     return center;
 }
 
