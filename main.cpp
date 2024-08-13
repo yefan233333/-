@@ -16,14 +16,6 @@ void contour_min_area_back(int,void*)
 }
 
 
-
-
-
-
-
-
-
-
 int main()
 {
     VideoCapture vid;
@@ -31,9 +23,9 @@ int main()
     Mat img;
     Mat img_init;
     Mat img_contours_show;
-    namedWindow("img_getContours_show",WINDOW_AUTOSIZE);
-    createTrackbar("contour_min_area","img_getContours_show",&contour_min_area,2000);
-
+    namedWindow("src_show",WINDOW_AUTOSIZE);
+    createTrackbar("contour_min_area","src_show",&contour_min_area,2000);
+    createTrackbar("blade_min_area","src_show",&blade_min_area,4000);
     
     while(1)
     {
@@ -41,12 +33,12 @@ int main()
         if(img.empty())
             break;
         imshow("img",img);
-        Rune_delete rune_delete;
+        Rune_delete rune_delete(img);
 
         img_init = rune_delete.img_Init1(img);
         imshow("img_init",img_init);
         img_contours_show = Mat::zeros(img_init.size(),img.type());
-        rune_delete.getContours(img_init,img_contours_show);
+        rune_delete.getBlades(img_init,img_contours_show);
         if(waitKey(10) == 'q')break;
     }
     waitKey(0);
