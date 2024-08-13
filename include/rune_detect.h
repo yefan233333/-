@@ -1,12 +1,21 @@
 #pragma once
 #include<iostream>
-class rune_delete
+#include<vector>
+#include<opencv2/opencv.hpp>
+
+
+extern int contour_min_area;
+extern const double PI;
+
+class Rune_delete
 {
+private:
+    cv::Mat img;    //操作的图像
+
 public:
-    int _num;
-    rune_delete(int num):_num(num)
-    {
-        std::cout<<"成功设置Num = "<<_num <<std::endl;
-    }
-    void show();
+    cv::Mat img_Init1(cv::Mat src);
+    void getContours(cv::Mat src,cv::Mat src_show);
+
+
+
 };

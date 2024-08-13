@@ -153,6 +153,54 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/blade.o: src/blade.cpp.o
+.PHONY : src/blade.o
+
+# target to build an object file
+src/blade.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/blade.cpp.o
+.PHONY : src/blade.cpp.o
+
+src/blade.i: src/blade.cpp.i
+.PHONY : src/blade.i
+
+# target to preprocess a source file
+src/blade.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/blade.cpp.i
+.PHONY : src/blade.cpp.i
+
+src/blade.s: src/blade.cpp.s
+.PHONY : src/blade.s
+
+# target to generate assembly for a file
+src/blade.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/blade.cpp.s
+.PHONY : src/blade.cpp.s
+
+src/myFunction.o: src/myFunction.cpp.o
+.PHONY : src/myFunction.o
+
+# target to build an object file
+src/myFunction.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/myFunction.cpp.o
+.PHONY : src/myFunction.cpp.o
+
+src/myFunction.i: src/myFunction.cpp.i
+.PHONY : src/myFunction.i
+
+# target to preprocess a source file
+src/myFunction.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/myFunction.cpp.i
+.PHONY : src/myFunction.cpp.i
+
+src/myFunction.s: src/myFunction.cpp.s
+.PHONY : src/myFunction.s
+
+# target to generate assembly for a file
+src/myFunction.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/myFunction.cpp.s
+.PHONY : src/myFunction.cpp.s
+
 src/rune_detect.o: src/rune_detect.cpp.o
 .PHONY : src/rune_detect.o
 
@@ -189,6 +237,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/blade.o"
+	@echo "... src/blade.i"
+	@echo "... src/blade.s"
+	@echo "... src/myFunction.o"
+	@echo "... src/myFunction.i"
+	@echo "... src/myFunction.s"
 	@echo "... src/rune_detect.o"
 	@echo "... src/rune_detect.i"
 	@echo "... src/rune_detect.s"
