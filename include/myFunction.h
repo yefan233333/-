@@ -10,6 +10,7 @@ cv::Point2f getPointsCenter(std::vector<cv::Point> points);
 
 
 void drawPoints(cv::Mat src,std::vector<cv::Point> points,cv::Scalar color);
+void drawPoints(cv::Mat src,std::vector<cv::Point2f> points,cv::Scalar color);
 
 
 void drawPoints(cv::Mat src,cv::Point2f points[],int len,cv::Scalar color);

@@ -21,9 +21,25 @@ void drawPoints(Mat src,vector<Point> points,Scalar color)
 {
     int points_size = points.size();
     Point last_point = points[points_size -1];
+
+
     for(auto&& point:points)
     {
         line(src,last_point,point,color,contours_thickness);
+        last_point = point;
+    }
+}
+
+void drawPoints(Mat src,vector<Point2f> points,Scalar color)
+{
+    int points_size = points.size();
+    Point last_point = points[points_size -1];
+
+
+
+    for(auto&& point:points)
+    {
+        line(src,last_point,(Point)point,color,contours_thickness);
         last_point = point;
     }
 }

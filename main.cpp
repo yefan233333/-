@@ -22,10 +22,11 @@ int main()
     vid.open("/home/yefan/桌面/神符检验.avi");
     Mat img;
     Mat img_init;
-    Mat img_contours_show;
+    Mat img_show;
+    string show_winname = "img show";
     namedWindow("src_show",WINDOW_AUTOSIZE);
-    createTrackbar("contour_min_area","src_show",&contour_min_area,2000);
-    createTrackbar("blade_min_area","src_show",&blade_min_area,4000);
+    createTrackbar("contour_min_area",show_winname,&contour_min_area,2000);
+    createTrackbar("blade_min_area",show_winname,&blade_min_area,4000);
     
     while(1)
     {
@@ -33,12 +34,15 @@ int main()
         if(img.empty())
             break;
         imshow("img",img);
-        Rune_delete rune_delete(img);
+        Rune_detect rune_detect;
+        rune_detect.img_Init(img);
+        rune_detect.getBlades();
+        img_show = rune_detect.get_src_img();
+        rune_detect.print_blades_minAreaRect(img_show);
+        rune_detect.print_circle_center(img_show);
+        imshow(show_winname,img_show);
+    
 
-        img_init = rune_delete.img_Init1(img);
-        imshow("img_init",img_init);
-        img_contours_show = Mat::zeros(img_init.size(),img.type());
-        rune_delete.getBlades(img_init,img_contours_show);
         if(waitKey(10) == 'q')break;
     }
     waitKey(0);

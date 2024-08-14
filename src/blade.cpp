@@ -3,8 +3,12 @@
 using namespace std;
 using namespace cv;
 
-void Blade::contour_show(cv::Mat img_show,Scalar color)
+void Blade::print_contour(cv::Mat src_img,Scalar color)
 {
-    vector<Point> points(_rrt_points,_rrt_points+4);
-    drawPoints(img_show,points,color);
+    drawPoints(src_img,_contour,color);
+}
+
+void Blade::print_minAreaRect(cv::Mat src_img,Scalar color)
+{
+    drawPoints(src_img,_rrt_points,color);
 }
