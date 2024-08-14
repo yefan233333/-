@@ -201,6 +201,30 @@ src/myFunction.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/myFunction.cpp.s
 .PHONY : src/myFunction.cpp.s
 
+src/myLine.o: src/myLine.cpp.o
+.PHONY : src/myLine.o
+
+# target to build an object file
+src/myLine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/myLine.cpp.o
+.PHONY : src/myLine.cpp.o
+
+src/myLine.i: src/myLine.cpp.i
+.PHONY : src/myLine.i
+
+# target to preprocess a source file
+src/myLine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/myLine.cpp.i
+.PHONY : src/myLine.cpp.i
+
+src/myLine.s: src/myLine.cpp.s
+.PHONY : src/myLine.s
+
+# target to generate assembly for a file
+src/myLine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/myLine.cpp.s
+.PHONY : src/myLine.cpp.s
+
 src/rune_detect.o: src/rune_detect.cpp.o
 .PHONY : src/rune_detect.o
 
@@ -243,6 +267,9 @@ help:
 	@echo "... src/myFunction.o"
 	@echo "... src/myFunction.i"
 	@echo "... src/myFunction.s"
+	@echo "... src/myLine.o"
+	@echo "... src/myLine.i"
+	@echo "... src/myLine.s"
 	@echo "... src/rune_detect.o"
 	@echo "... src/rune_detect.i"
 	@echo "... src/rune_detect.s"

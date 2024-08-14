@@ -56,6 +56,7 @@ Mat Rune_detect::get_init_img()
     return _init_img;
 }
 
+
 // 检测二值化图像中的轮廓
 bool Rune_detect::getBlades(Mat src_show)
 {
@@ -79,10 +80,11 @@ bool Rune_detect::getBlades(Mat src_show)
         double Area1 = PI * pow((C / 2 / PI), 2);
         double Area2 = contourArea(contour);
         double P = Area1 / Area2;
+
         if (Area2 < contour_min_area)
         {
         }
-        else if (0.6 < P && P < 1.5) // 如果该轮廓是圆形，就把这个轮廓转移到circle中。并舍弃该轮廓
+        else if (0.8 < P && P < 1.5) // 如果该轮廓是圆形，就把这个轮廓转移到circle中。并舍弃该轮廓
         {
             circleCenters.push_back(contour);
             Point2f center = getPointsCenter(contour);
