@@ -18,10 +18,7 @@ public:
     myLine _line;   //扇叶的中垂线（指向旋转中心）
     cv::Point2f _center;                //扇叶的中心
     Blade(){};
-    Blade(std::vector<cv::Point> contour,int contours_id)
-    {
-        this->Init(contour,contours_id);
-    }
+    Blade(std::vector<cv::Point> contour,int contours_id);
     void Init(std::vector<cv::Point> contour,int contours_id);
     void print_contour(cv::Mat src_img,cv::Scalar color = contours_scalar); //显示扇叶轮廓
     void print_minAreaRect(cv::Mat src_img,cv::Scalar color = contours_scalar);

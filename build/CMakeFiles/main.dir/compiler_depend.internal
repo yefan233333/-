@@ -424,6 +424,11 @@ CMakeFiles/main.dir/main.cpp.o
  /home/yefan/OpenCVProject/神符检验/include/myLine.h
  /home/yefan/OpenCVProject/神符检验/include/myFunction.h
 
+CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o
+ /home/yefan/OpenCVProject/神符检验/src/RuneVideoProcessor.cpp
+ /usr/include/stdc-predef.h
+ /home/yefan/OpenCVProject/神符检验/include/runeVideoProcessor.h
+
 CMakeFiles/main.dir/src/blade.cpp.o
  /home/yefan/OpenCVProject/神符检验/src/blade.cpp
  /usr/include/stdc-predef.h

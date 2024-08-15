@@ -3,6 +3,12 @@
 using namespace std;
 using namespace cv;
 
+
+Blade::Blade(std::vector<cv::Point> contour,int contours_id)
+{
+    this->Init(contour,contours_id);
+}
+
 void Blade::Init(vector<Point> contour, int contours_id)
 {
     _contours_id = contours_id;           // 设置contours_id

@@ -3,6 +3,25 @@
 using namespace std;
 using namespace cv;
 
+//通过 y = k*x + m 构造直线方程
+myLine::myLine(double k,double m)   
+{
+    _A = k;
+    _B = -1;
+    _C = m;
+}
+
+//构造一条过p3、平行于p1和p2连线的直线。表达式为：Ax + By + C = 0
+myLine::myLine(cv::Point2f p1,cv::Point2f p2,cv::Point2f p3)    
+{
+    this->init(p1,p2,p3);
+}
+
+//通过两点构造一条直线
+myLine::myLine(cv::Point2f p1,cv::Point2f p2)
+{
+    this->init(p1,p2);
+}
 
 //构造一条过p3、平行于p1和p2连线的直线。表达式为：Ax + By + C = 0
 void myLine::init(cv::Point2f p1,cv::Point2f p2,cv::Point2f p3)

@@ -153,6 +153,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/RuneVideoProcessor.o: src/RuneVideoProcessor.cpp.o
+.PHONY : src/RuneVideoProcessor.o
+
+# target to build an object file
+src/RuneVideoProcessor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o
+.PHONY : src/RuneVideoProcessor.cpp.o
+
+src/RuneVideoProcessor.i: src/RuneVideoProcessor.cpp.i
+.PHONY : src/RuneVideoProcessor.i
+
+# target to preprocess a source file
+src/RuneVideoProcessor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.i
+.PHONY : src/RuneVideoProcessor.cpp.i
+
+src/RuneVideoProcessor.s: src/RuneVideoProcessor.cpp.s
+.PHONY : src/RuneVideoProcessor.s
+
+# target to generate assembly for a file
+src/RuneVideoProcessor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.s
+.PHONY : src/RuneVideoProcessor.cpp.s
+
 src/blade.o: src/blade.cpp.o
 .PHONY : src/blade.o
 
@@ -261,6 +285,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/RuneVideoProcessor.o"
+	@echo "... src/RuneVideoProcessor.i"
+	@echo "... src/RuneVideoProcessor.s"
 	@echo "... src/blade.o"
 	@echo "... src/blade.i"
 	@echo "... src/blade.s"

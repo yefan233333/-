@@ -83,10 +83,24 @@ CMakeFiles/main.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yefan/OpenCVProject/神符检验/main.cpp -o CMakeFiles/main.dir/main.cpp.s
 
+CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o: ../src/RuneVideoProcessor.cpp
+CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yefan/OpenCVProject/神符检验/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o -MF CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o.d -o CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o -c /home/yefan/OpenCVProject/神符检验/src/RuneVideoProcessor.cpp
+
+CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yefan/OpenCVProject/神符检验/src/RuneVideoProcessor.cpp > CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.i
+
+CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yefan/OpenCVProject/神符检验/src/RuneVideoProcessor.cpp -o CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.s
+
 CMakeFiles/main.dir/src/blade.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/blade.cpp.o: ../src/blade.cpp
 CMakeFiles/main.dir/src/blade.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yefan/OpenCVProject/神符检验/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/blade.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yefan/OpenCVProject/神符检验/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/blade.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/blade.cpp.o -MF CMakeFiles/main.dir/src/blade.cpp.o.d -o CMakeFiles/main.dir/src/blade.cpp.o -c /home/yefan/OpenCVProject/神符检验/src/blade.cpp
 
 CMakeFiles/main.dir/src/blade.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/main.dir/src/blade.cpp.s: cmake_force
 CMakeFiles/main.dir/src/myFunction.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/myFunction.cpp.o: ../src/myFunction.cpp
 CMakeFiles/main.dir/src/myFunction.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yefan/OpenCVProject/神符检验/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/myFunction.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yefan/OpenCVProject/神符检验/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/myFunction.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/myFunction.cpp.o -MF CMakeFiles/main.dir/src/myFunction.cpp.o.d -o CMakeFiles/main.dir/src/myFunction.cpp.o -c /home/yefan/OpenCVProject/神符检验/src/myFunction.cpp
 
 CMakeFiles/main.dir/src/myFunction.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/main.dir/src/myFunction.cpp.s: cmake_force
 CMakeFiles/main.dir/src/myLine.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/myLine.cpp.o: ../src/myLine.cpp
 CMakeFiles/main.dir/src/myLine.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yefan/OpenCVProject/神符检验/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/myLine.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yefan/OpenCVProject/神符检验/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/myLine.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/myLine.cpp.o -MF CMakeFiles/main.dir/src/myLine.cpp.o.d -o CMakeFiles/main.dir/src/myLine.cpp.o -c /home/yefan/OpenCVProject/神符检验/src/myLine.cpp
 
 CMakeFiles/main.dir/src/myLine.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/main.dir/src/myLine.cpp.s: cmake_force
 CMakeFiles/main.dir/src/rune_detect.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/rune_detect.cpp.o: ../src/rune_detect.cpp
 CMakeFiles/main.dir/src/rune_detect.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yefan/OpenCVProject/神符检验/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/rune_detect.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yefan/OpenCVProject/神符检验/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/rune_detect.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/rune_detect.cpp.o -MF CMakeFiles/main.dir/src/rune_detect.cpp.o.d -o CMakeFiles/main.dir/src/rune_detect.cpp.o -c /home/yefan/OpenCVProject/神符检验/src/rune_detect.cpp
 
 CMakeFiles/main.dir/src/rune_detect.cpp.i: cmake_force
@@ -142,6 +156,7 @@ CMakeFiles/main.dir/src/rune_detect.cpp.s: cmake_force
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/main.cpp.o" \
+"CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o" \
 "CMakeFiles/main.dir/src/blade.cpp.o" \
 "CMakeFiles/main.dir/src/myFunction.cpp.o" \
 "CMakeFiles/main.dir/src/myLine.cpp.o" \
@@ -151,6 +166,7 @@ main_OBJECTS = \
 main_EXTERNAL_OBJECTS =
 
 main: CMakeFiles/main.dir/main.cpp.o
+main: CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o
 main: CMakeFiles/main.dir/src/blade.cpp.o
 main: CMakeFiles/main.dir/src/myFunction.cpp.o
 main: CMakeFiles/main.dir/src/myLine.cpp.o
@@ -172,7 +188,7 @@ main: /usr/local/lib/libopencv_flann.so.4.7.0
 main: /usr/local/lib/libopencv_imgproc.so.4.7.0
 main: /usr/local/lib/libopencv_core.so.4.7.0
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yefan/OpenCVProject/神符检验/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yefan/OpenCVProject/神符检验/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

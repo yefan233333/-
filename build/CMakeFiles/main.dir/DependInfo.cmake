@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/yefan/OpenCVProject/神符检验/main.cpp" "CMakeFiles/main.dir/main.cpp.o" "gcc" "CMakeFiles/main.dir/main.cpp.o.d"
+  "/home/yefan/OpenCVProject/神符检验/src/RuneVideoProcessor.cpp" "CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o" "gcc" "CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o.d"
   "/home/yefan/OpenCVProject/神符检验/src/blade.cpp" "CMakeFiles/main.dir/src/blade.cpp.o" "gcc" "CMakeFiles/main.dir/src/blade.cpp.o.d"
   "/home/yefan/OpenCVProject/神符检验/src/myFunction.cpp" "CMakeFiles/main.dir/src/myFunction.cpp.o" "gcc" "CMakeFiles/main.dir/src/myFunction.cpp.o.d"
   "/home/yefan/OpenCVProject/神符检验/src/myLine.cpp" "CMakeFiles/main.dir/src/myLine.cpp.o" "gcc" "CMakeFiles/main.dir/src/myLine.cpp.o.d"

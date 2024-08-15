@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main.dir/main.cpp.o"
   "CMakeFiles/main.dir/main.cpp.o.d"
+  "CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o"
+  "CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o.d"
   "CMakeFiles/main.dir/src/blade.cpp.o"
   "CMakeFiles/main.dir/src/blade.cpp.o.d"
   "CMakeFiles/main.dir/src/myFunction.cpp.o"
