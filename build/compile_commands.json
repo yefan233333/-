@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/yefan/OpenCVProject/神符检验/build",
+  "command": "/usr/bin/c++  -I/home/yefan/OpenCVProject/神符检验/include -isystem /usr/local/include/opencv4  -Wall -g -o CMakeFiles/main.dir/main.cpp.o -c /home/yefan/OpenCVProject/神符检验/main.cpp",
+  "file": "/home/yefan/OpenCVProject/神符检验/main.cpp"
+},
+{
+  "directory": "/home/yefan/OpenCVProject/神符检验/build",
+  "command": "/usr/bin/c++  -I/home/yefan/OpenCVProject/神符检验/include -isystem /usr/local/include/opencv4  -Wall -g -o CMakeFiles/main.dir/src/blade.cpp.o -c /home/yefan/OpenCVProject/神符检验/src/blade.cpp",
+  "file": "/home/yefan/OpenCVProject/神符检验/src/blade.cpp"
+},
+{
+  "directory": "/home/yefan/OpenCVProject/神符检验/build",
+  "command": "/usr/bin/c++  -I/home/yefan/OpenCVProject/神符检验/include -isystem /usr/local/include/opencv4  -Wall -g -o CMakeFiles/main.dir/src/myFunction.cpp.o -c /home/yefan/OpenCVProject/神符检验/src/myFunction.cpp",
+  "file": "/home/yefan/OpenCVProject/神符检验/src/myFunction.cpp"
+},
+{
+  "directory": "/home/yefan/OpenCVProject/神符检验/build",
+  "command": "/usr/bin/c++  -I/home/yefan/OpenCVProject/神符检验/include -isystem /usr/local/include/opencv4  -Wall -g -o CMakeFiles/main.dir/src/myLine.cpp.o -c /home/yefan/OpenCVProject/神符检验/src/myLine.cpp",
+  "file": "/home/yefan/OpenCVProject/神符检验/src/myLine.cpp"
+},
+{
+  "directory": "/home/yefan/OpenCVProject/神符检验/build",
+  "command": "/usr/bin/c++  -I/home/yefan/OpenCVProject/神符检验/include -isystem /usr/local/include/opencv4  -Wall -g -o CMakeFiles/main.dir/src/rune_detect.cpp.o -c /home/yefan/OpenCVProject/神符检验/src/rune_detect.cpp",
+  "file": "/home/yefan/OpenCVProject/神符检验/src/rune_detect.cpp"
+}
+]

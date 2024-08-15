@@ -1,7 +1,17 @@
 #include"myLine.h"
+#include"printf.h"
 using namespace std;
 using namespace cv;
 
+
+//构造一条过p3、平行于p1和p2连线的直线。表达式为：Ax + By + C = 0
+void myLine::init(cv::Point2f p1,cv::Point2f p2,cv::Point2f p3)
+{
+    Point2f v1 = p2 - p1;
+    _A = -v1.y;
+    _B = v1.x;
+    _C = -(_A * p3.x + _B * p3.y);
+}
 
 double myLine::get_x(double y)
 {
@@ -35,6 +45,7 @@ Point2f myLine::intersectLine(myLine l2)
     {
         // 如果行列式为0，则直线平行或者重合
         cout <<"直线发生e重合或者平行,提示错误"<<endl;
+        cout << "det = "<<det <<endl;
         return Point2f(0,0);
     }
 
@@ -43,3 +54,31 @@ Point2f myLine::intersectLine(myLine l2)
 
     return Point2f(x, y);  // 返回交点坐标
 }
+
+//过两个点构造直线
+void myLine::init(Point2f p1,Point2f p2)
+{
+    Point2f v1 = p2 - p1;
+    _A = -v1.y;
+    _B = v1.x;
+    _C = -(_A * p2.x + _B * p2.y);
+    // _C = -(_A * p2.x + _B * p2.y);
+}
+
+//获取该直线的垂线。x为交点横坐标
+myLine myLine::getPerpLine(double x)
+{
+    double A = -_B;
+    double B = _A;
+    double C = -(A*x + B*get_y(x));
+    myLine result(A,B,C);
+    return result;
+}
+
+ostream& operator<<(ostream& cout,const myLine& myline)
+{
+    cout << "["<<myline._A<<","<<myline._B<<","<<myline._C<<"]" <<endl;
+    return cout;
+}
+
+

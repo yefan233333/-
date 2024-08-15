@@ -420,8 +420,8 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
   ../include/rune_detect.h \
   ../include/blade.h \
   ../include/myFunction.h \
-  ../include/myFunction.h \
-  ../include/myLine.h
+  ../include/myLine.h \
+  ../include/myFunction.h
 
 CMakeFiles/main.dir/src/blade.cpp.o: ../src/blade.cpp \
   /usr/include/stdc-predef.h \
@@ -841,6 +841,7 @@ CMakeFiles/main.dir/src/blade.cpp.o: ../src/blade.cpp \
   /usr/local/include/opencv4/opencv2/video/tracking.hpp \
   /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
   ../include/myFunction.h \
+  ../include/myLine.h \
   ../include/myFunction.h
 
 CMakeFiles/main.dir/src/myFunction.cpp.o: ../src/myFunction.cpp \
@@ -1259,7 +1260,8 @@ CMakeFiles/main.dir/src/myFunction.cpp.o: ../src/myFunction.cpp \
   /usr/local/include/opencv4/opencv2/stitching/detail/camera.hpp \
   /usr/local/include/opencv4/opencv2/video.hpp \
   /usr/local/include/opencv4/opencv2/video/tracking.hpp \
-  /usr/local/include/opencv4/opencv2/video/background_segm.hpp
+  /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
+  ../include/myLine.h
 
 CMakeFiles/main.dir/src/myLine.cpp.o: ../src/myLine.cpp \
   /usr/include/stdc-predef.h \
@@ -1677,7 +1679,8 @@ CMakeFiles/main.dir/src/myLine.cpp.o: ../src/myLine.cpp \
   /usr/local/include/opencv4/opencv2/stitching/detail/camera.hpp \
   /usr/local/include/opencv4/opencv2/video.hpp \
   /usr/local/include/opencv4/opencv2/video/tracking.hpp \
-  /usr/local/include/opencv4/opencv2/video/background_segm.hpp
+  /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
+  /usr/include/printf.h
 
 CMakeFiles/main.dir/src/rune_detect.cpp.o: ../src/rune_detect.cpp \
   /usr/include/stdc-predef.h \
@@ -2098,10 +2101,13 @@ CMakeFiles/main.dir/src/rune_detect.cpp.o: ../src/rune_detect.cpp \
   /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
   ../include/blade.h \
   ../include/myFunction.h \
+  ../include/myLine.h \
   ../include/myFunction.h
 
 
 ../src/rune_detect.cpp:
+
+/usr/include/printf.h:
 
 ../src/myLine.cpp:
 
