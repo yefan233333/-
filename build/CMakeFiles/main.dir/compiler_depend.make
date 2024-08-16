@@ -423,10 +423,6 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
   ../include/myLine.h \
   ../include/myFunction.h
 
-CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o: ../src/RuneVideoProcessor.cpp \
-  /usr/include/stdc-predef.h \
-  ../include/runeVideoProcessor.h
-
 CMakeFiles/main.dir/src/blade.cpp.o: ../src/blade.cpp \
   /usr/include/stdc-predef.h \
   ../include/blade.h \
@@ -2119,8 +2115,6 @@ CMakeFiles/main.dir/src/rune_detect.cpp.o: ../src/rune_detect.cpp \
 
 ../src/blade.cpp:
 
-../include/runeVideoProcessor.h:
-
 ../include/myLine.h:
 
 ../include/myFunction.h:
@@ -2202,8 +2196,6 @@ CMakeFiles/main.dir/src/rune_detect.cpp.o: ../src/rune_detect.cpp \
 /usr/local/include/opencv4/opencv2/flann/linear_index.h:
 
 /usr/local/include/opencv4/opencv2/flann/composite_index.h:
-
-../src/RuneVideoProcessor.cpp:
 
 /usr/local/include/opencv4/opencv2/flann/allocator.h:
 

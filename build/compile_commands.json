@@ -6,11 +6,6 @@
 },
 {
   "directory": "/home/yefan/OpenCVProject/神符检验/build",
-  "command": "/usr/bin/c++  -I/home/yefan/OpenCVProject/神符检验/include -isystem /usr/local/include/opencv4  -Wall -g -o CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o -c /home/yefan/OpenCVProject/神符检验/src/RuneVideoProcessor.cpp",
-  "file": "/home/yefan/OpenCVProject/神符检验/src/RuneVideoProcessor.cpp"
-},
-{
-  "directory": "/home/yefan/OpenCVProject/神符检验/build",
   "command": "/usr/bin/c++  -I/home/yefan/OpenCVProject/神符检验/include -isystem /usr/local/include/opencv4  -Wall -g -o CMakeFiles/main.dir/src/blade.cpp.o -c /home/yefan/OpenCVProject/神符检验/src/blade.cpp",
   "file": "/home/yefan/OpenCVProject/神符检验/src/blade.cpp"
 },
@@ -23,6 +18,11 @@
   "directory": "/home/yefan/OpenCVProject/神符检验/build",
   "command": "/usr/bin/c++  -I/home/yefan/OpenCVProject/神符检验/include -isystem /usr/local/include/opencv4  -Wall -g -o CMakeFiles/main.dir/src/myLine.cpp.o -c /home/yefan/OpenCVProject/神符检验/src/myLine.cpp",
   "file": "/home/yefan/OpenCVProject/神符检验/src/myLine.cpp"
+},
+{
+  "directory": "/home/yefan/OpenCVProject/神符检验/build",
+  "command": "/usr/bin/c++  -I/home/yefan/OpenCVProject/神符检验/include -isystem /usr/local/include/opencv4  -Wall -g -o CMakeFiles/main.dir/src/runeVideoProcessor.cpp.o -c /home/yefan/OpenCVProject/神符检验/src/runeVideoProcessor.cpp",
+  "file": "/home/yefan/OpenCVProject/神符检验/src/runeVideoProcessor.cpp"
 },
 {
   "directory": "/home/yefan/OpenCVProject/神符检验/build",

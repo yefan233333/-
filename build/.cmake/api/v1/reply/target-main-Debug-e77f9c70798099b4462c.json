@@ -218,12 +218,6 @@
 		{
 			"backtrace" : 5,
 			"compileGroupIndex" : 0,
-			"path" : "src/RuneVideoProcessor.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 5,
-			"compileGroupIndex" : 0,
 			"path" : "src/blade.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -237,6 +231,12 @@
 			"backtrace" : 5,
 			"compileGroupIndex" : 0,
 			"path" : "src/myLine.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "src/runeVideoProcessor.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

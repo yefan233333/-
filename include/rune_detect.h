@@ -4,6 +4,8 @@
 #include<opencv2/opencv.hpp>
 #include"blade.h"
 #include<string>
+#include <utility>
+
 
 
 extern int contour_min_area;
@@ -27,6 +29,12 @@ public:
     bool src_img_show(std::string winname = "src_img");
     cv::Mat get_src_img();
     cv::Mat get_init_img();
+    int get_Blade_size();
+    int get_CircleCenter_size();
+    cv::Mat get_blade_position_matrix();
+    cv::Mat get_circleCenter_position_matrix();
+    std::vector<Blade> get_blades();
+    std::vector<cv::Point2f> get_circle_centers();
     bool setBlades(cv::Mat src_show = cv::Mat());   
     bool setRotationCenter();
     bool print_blades_minAreaRect(cv::Mat src_show);
@@ -34,8 +42,6 @@ public:
     bool print_blades_line(cv::Mat src_show);
     bool print_circle_center(cv::Mat src_show);
     bool print_rotationCenter(cv::Mat src_show);
-
-
 
 };
 

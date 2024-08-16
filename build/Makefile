@@ -153,30 +153,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-src/RuneVideoProcessor.o: src/RuneVideoProcessor.cpp.o
-.PHONY : src/RuneVideoProcessor.o
-
-# target to build an object file
-src/RuneVideoProcessor.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.o
-.PHONY : src/RuneVideoProcessor.cpp.o
-
-src/RuneVideoProcessor.i: src/RuneVideoProcessor.cpp.i
-.PHONY : src/RuneVideoProcessor.i
-
-# target to preprocess a source file
-src/RuneVideoProcessor.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.i
-.PHONY : src/RuneVideoProcessor.cpp.i
-
-src/RuneVideoProcessor.s: src/RuneVideoProcessor.cpp.s
-.PHONY : src/RuneVideoProcessor.s
-
-# target to generate assembly for a file
-src/RuneVideoProcessor.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/RuneVideoProcessor.cpp.s
-.PHONY : src/RuneVideoProcessor.cpp.s
-
 src/blade.o: src/blade.cpp.o
 .PHONY : src/blade.o
 
@@ -249,6 +225,30 @@ src/myLine.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/myLine.cpp.s
 .PHONY : src/myLine.cpp.s
 
+src/runeVideoProcessor.o: src/runeVideoProcessor.cpp.o
+.PHONY : src/runeVideoProcessor.o
+
+# target to build an object file
+src/runeVideoProcessor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/runeVideoProcessor.cpp.o
+.PHONY : src/runeVideoProcessor.cpp.o
+
+src/runeVideoProcessor.i: src/runeVideoProcessor.cpp.i
+.PHONY : src/runeVideoProcessor.i
+
+# target to preprocess a source file
+src/runeVideoProcessor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/runeVideoProcessor.cpp.i
+.PHONY : src/runeVideoProcessor.cpp.i
+
+src/runeVideoProcessor.s: src/runeVideoProcessor.cpp.s
+.PHONY : src/runeVideoProcessor.s
+
+# target to generate assembly for a file
+src/runeVideoProcessor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/runeVideoProcessor.cpp.s
+.PHONY : src/runeVideoProcessor.cpp.s
+
 src/rune_detect.o: src/rune_detect.cpp.o
 .PHONY : src/rune_detect.o
 
@@ -285,9 +285,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/RuneVideoProcessor.o"
-	@echo "... src/RuneVideoProcessor.i"
-	@echo "... src/RuneVideoProcessor.s"
 	@echo "... src/blade.o"
 	@echo "... src/blade.i"
 	@echo "... src/blade.s"
@@ -297,6 +294,9 @@ help:
 	@echo "... src/myLine.o"
 	@echo "... src/myLine.i"
 	@echo "... src/myLine.s"
+	@echo "... src/runeVideoProcessor.o"
+	@echo "... src/runeVideoProcessor.i"
+	@echo "... src/runeVideoProcessor.s"
 	@echo "... src/rune_detect.o"
 	@echo "... src/rune_detect.i"
 	@echo "... src/rune_detect.s"

@@ -247,3 +247,36 @@ bool Rune_detect::print_rotationCenter(Mat src_show)
     circle(src_show, _rotationCenter, 3, Scalar(200, 60, 0), -1);
     return true;
 }
+
+int Rune_detect::get_Blade_size()
+{
+    return _blades.size();
+}
+
+int Rune_detect::get_CircleCenter_size()
+{
+    return _circle_centers.size();
+}
+
+//返回五片扇叶的位置矩阵
+Mat Rune_detect::get_blade_position_matrix()
+{
+    return _blade_position_matrix;
+}
+
+//返回三个圆心的位置矩阵
+Mat Rune_detect::get_circleCenter_position_matrix()
+{
+    return _circleCenter_position_matrix;
+}
+
+std::vector<Blade> Rune_detect::get_blades()
+{
+    return _blades;
+}
+
+std::vector<cv::Point2f> Rune_detect::get_circle_centers()
+{
+    return _circle_centers;
+}
+
