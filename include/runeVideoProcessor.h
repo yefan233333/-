@@ -15,15 +15,23 @@ class runeVideoProcessor
 private:
     std::unique_ptr<Rune_detect> _rune_detect_ptr;   //记录最新帧的神符状态
     std::unique_ptr<Rune_detect> _rune_detect_last_ptr;  //记录上一帧的神符状态
-    std::vector<Blade> _blades; //用于保存五个神符的信息
+    std::vector<Blade> _blades; //用于保存五个神符的最新信息
+    std::vector<std::vector<cv::Point2f>> _blades_position_array;   //保存五个神符的历史信息 时间 -> 五片扇叶中心
     double _rotationCenter;     //记录神符的旋转中心
     double _rotationSpeed;      //记录神符的当前旋转速度
     double _rotationSpeed_array; //记录神符的历史旋转速度
     void Init();
+    bool _start_flag;
+    int _num;   //记录图像读取的次数
 public: 
-    bool imread(cv::Mat src);    //读取新的图片、进行位置更新
-    bool src_imshow(std::string winname);   //展示读取到的新图片
-    bool imshow(std::string winname);   //展示识别效果
+    cv::Mat _src;       //存储最新读到的图片
+    runeVideoProcessor();
+    bool read(cv::Mat src);    //读取新的图片、进行位置更新
+    bool src_show(std::string winname = "src");   //展示读取到的新图片
+    bool show(std::string winname = "runeVideoProcessor show");   //展示识别效果
+    bool getStartFlag();
+    int getNum();
+
 };
 
 

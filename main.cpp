@@ -6,6 +6,7 @@
 #include <string>
 #include "myFunction.h"
 #include "myLine.h"
+#include"runeVideoProcessor.h"
 
 using namespace std;
 using namespace cv;
@@ -13,6 +14,8 @@ using namespace cv;
 void contour_min_area_back(int, void *)
 {
 }
+
+
 
 void test1()
 {
@@ -40,6 +43,7 @@ void test1()
         rune_detect.print_blades_minAreaRect(img_show);
         rune_detect.print_circle_center(img_show);
         // rune_detect.print_blades_line(img_show);
+        rune_detect.print_blades_center(img_show);
         rune_detect.init_img_show();
         rune_detect.print_rotationCenter(img_show);
         imshow(show_winname, img_show);
@@ -102,10 +106,34 @@ void circle_center_test()
     waitKey(0);
 }
 
+void test2()
+{
+    VideoCapture vid;
+    vid.open("/home/yefan/桌面/神符检验.avi");
+    Mat img;
+    runeVideoProcessor rvp;
+    while(1)
+    {
+
+        vid.read(img);
+        if(img.empty())
+            break;
+        rvp.read(img);
+        if(rvp.getStartFlag())
+        {
+
+            rvp.show();
+
+        }
+        waitKey(1);
+    }
+}
+
 int main()
 {
-    test1();
+    // test1();
     // myLine_test();
     // circle_center_test();
+    test2();
     return 0;
 }

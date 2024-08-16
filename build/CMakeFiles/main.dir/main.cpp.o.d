@@ -361,4 +361,5 @@ CMakeFiles/main.dir/main.cpp.o: \
  /home/yefan/OpenCVProject/神符检验/include/blade.h \
  /home/yefan/OpenCVProject/神符检验/include/myFunction.h \
  /home/yefan/OpenCVProject/神符检验/include/myLine.h \
- /home/yefan/OpenCVProject/神符检验/include/myFunction.h
+ /home/yefan/OpenCVProject/神符检验/include/myFunction.h \
+ /home/yefan/OpenCVProject/神符检验/include/runeVideoProcessor.h

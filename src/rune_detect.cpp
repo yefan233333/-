@@ -215,6 +215,14 @@ bool Rune_detect::print_blades_minAreaRect(Mat src_show)
     return true;
 }
 
+bool Rune_detect::print_blades_center(Mat src_show)
+{
+    for(auto && blade:_blades)
+    {
+        circle(src_show,blade._center,10,Scalar(100,250,100),-1);
+    }
+}
+
 // 打印扇叶的中垂线
 bool Rune_detect::print_blades_line(Mat src_show)
 {

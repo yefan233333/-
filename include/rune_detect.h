@@ -38,6 +38,7 @@ public:
     bool setBlades(cv::Mat src_show = cv::Mat());   
     bool setRotationCenter();
     bool print_blades_minAreaRect(cv::Mat src_show);
+    bool print_blades_center(cv::Mat src_show);
     bool print_blades_contour(cv::Mat src_show);      
     bool print_blades_line(cv::Mat src_show);
     bool print_circle_center(cv::Mat src_show);
