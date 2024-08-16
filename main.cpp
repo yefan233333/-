@@ -121,7 +121,7 @@ void test2()
         rvp.read(img);
         if(rvp.getStartFlag())
         {
-
+            rvp.src_show();
             rvp.show();
 
         }

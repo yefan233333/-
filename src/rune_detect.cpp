@@ -252,7 +252,7 @@ bool Rune_detect::print_rotationCenter(Mat src_show)
     {
         return false;
     }
-    circle(src_show, _rotationCenter, 3, Scalar(200, 60, 0), -1);
+    circle(src_show, _rotationCenter, 10, Scalar(200, 60, 0), -1);
     return true;
 }
 
