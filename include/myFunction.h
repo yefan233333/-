@@ -1,3 +1,5 @@
+#pragma once
+
 #include<iostream>
 #include<opencv2/opencv.hpp>
 #include<vector>
@@ -17,3 +19,5 @@ void drawPoints(cv::Mat src,cv::Point2f points[],int len,cv::Scalar color);
 cv::Point2f getPointsAverage(std::vector<cv::Point2f> points);
 cv::Point2f getPointsVar(std::vector<cv::Point2f> points);
 cv::Point2f getCircleCenter(cv::Point2f p1,cv::Point2f p2,cv::Point2f p3);
+std::vector<double> generateGaussianKernel(int kernelSize, double sigma); 
+bool dataArrayShow(std::vector<double> array, cv::Mat src_show,cv::Scalar color = cv::Scalar(100,200,255));

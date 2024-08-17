@@ -421,7 +421,6 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
   ../include/blade.h \
   ../include/myFunction.h \
   ../include/myLine.h \
-  ../include/myFunction.h \
   ../include/runeVideoProcessor.h
 
 CMakeFiles/main.dir/src/blade.cpp.o: ../src/blade.cpp \
@@ -842,8 +841,7 @@ CMakeFiles/main.dir/src/blade.cpp.o: ../src/blade.cpp \
   /usr/local/include/opencv4/opencv2/video/tracking.hpp \
   /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
   ../include/myFunction.h \
-  ../include/myLine.h \
-  ../include/myFunction.h
+  ../include/myLine.h
 
 CMakeFiles/main.dir/src/myFunction.cpp.o: ../src/myFunction.cpp \
   /usr/include/stdc-predef.h \
@@ -2524,8 +2522,7 @@ CMakeFiles/main.dir/src/rune_detect.cpp.o: ../src/rune_detect.cpp \
   /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
   ../include/blade.h \
   ../include/myFunction.h \
-  ../include/myLine.h \
-  ../include/myFunction.h
+  ../include/myLine.h
 
 
 ../src/rune_detect.cpp:

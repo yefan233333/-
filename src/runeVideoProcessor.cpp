@@ -7,6 +7,7 @@ runeVideoProcessor::runeVideoProcessor()
 {
     _start_flag = false;
     _num = 0;
+    _blades_polar_position_array_size = 100;
     _rotationCenter = Point2f(0,0);
 }
 
@@ -71,7 +72,7 @@ void runeVideoProcessor::setBladePosition()
     }
 
     _blades_polar_position_array.push_back(blades_polar_position);
-    if(_blades_polar_position_array.size() > 10)   //保证双向列表的大小恒为10。
+    if(_blades_polar_position_array.size() > _blades_polar_position_array_size)   //保证双向列表的大小恒为10。
     {
         _blades_polar_position_array.pop_front();
     }
@@ -95,6 +96,7 @@ bool runeVideoProcessor::read(cv::Mat src)
     _rune_detect_ptr->setRotationCenter();
 
     this->setRotationCenter();
+    this->setSpeed();
 
     if (!_start_flag)
     {
@@ -122,6 +124,7 @@ bool runeVideoProcessor::src_show(std::string winname)
 bool runeVideoProcessor::show(std::string winname)
 {
     Mat img_show = _src.clone();
+    Mat img_dataArray_show = Mat::zeros(_src.size(),CV_8UC3);
     // _rune_detect_last_ptr->print_blades_contour(img_show);
     _rune_detect_last_ptr->print_circle_center(img_show);
     // _rune_detect_last_ptr->print_rotationCenter(img_show);
@@ -129,9 +132,15 @@ bool runeVideoProcessor::show(std::string winname)
     this->print_rotationCenter(img_show);
     this->print_blades_num(img_show);
     this->print_blades_angle(img_show);
+    this->print_rotation_speed(img_show);
+    this->blades_polar_position_show(img_dataArray_show);
+
+    // if(_num % 10)
+    //     img_show = Scalar(51,51,51);
 
     imshow(winname,img_show);
-
+    imshow("img_dataArray_show",img_dataArray_show);
+    
     // for(auto&& blades_polar_position:_blades_polar_position_array)
     // {
     //     cout << blades_polar_position <<" ";
@@ -152,10 +161,27 @@ int runeVideoProcessor::getNum()
     return _num;
 }
 
-//计算得到神符的速度
-void runeVideoProcessor::setSpeed()
+//计算得到当前神符的速度
+bool runeVideoProcessor::setSpeed()
 {   
+    if(_blades_polar_position_array.size() < _blades_polar_position_array_size)
+        return false;
+    double  rotation_Speed = 0;
 
+    auto && it_1 = _blades_polar_position_array[_blades_polar_position_array_size -1].begin();
+    auto && it_2 = _blades_polar_position_array[1].begin();
+    auto && it_1_end = _blades_polar_position_array[_blades_polar_position_array_size - 1].end();
+    for(;it_1 != it_1_end;it_1++,it_2++)
+    {
+        double blade_rotation_speed = ((*it_1).y - (*it_2).y);
+        if(blade_rotation_speed < -3.14)
+            blade_rotation_speed += 6.28;
+        rotation_Speed += 0.2 * blade_rotation_speed;
+    }
+    _rotationSpeed = rotation_Speed;
+    _rotationSpeed_array.push_back(_rotationSpeed);
+
+    return true;
 }
 
 bool runeVideoProcessor::print_rotationCenter(cv::Mat src_show)
@@ -171,7 +197,7 @@ bool runeVideoProcessor::print_blades_angle(cv::Mat src_show)
 {
     if(src_show.empty())
         return false;
-    if(_blades_polar_position_array.size() < 10)
+    if(_blades_polar_position_array.size() < _blades_polar_position_array_size)
         return false;
     for(int i = 0;i<5;i++)
     {
@@ -191,5 +217,29 @@ bool runeVideoProcessor::print_blades_num(cv::Mat src_show)
         putText(src_show,to_string(num),blade._center,FONT_HERSHEY_COMPLEX_SMALL,3.0,Scalar(100,150,200),3.0);
         num++;
     }
+    return true;
+}
+
+bool runeVideoProcessor::print_rotation_speed(cv::Mat src_show)
+{
+    if(src_show.empty())
+        return false;
+
+    putText(src_show,"rotation_Speed:" + to_string(_rotationSpeed),Point2f(0,50),2,1,Scalar(200,100,0),1,LINE_8);
+
+    return true;
+}
+
+//打印极坐标缓存区中的坐标位置，以线形图的形式
+bool runeVideoProcessor::blades_polar_position_show(cv::Mat src_show)
+{
+    if(src_show.empty())return false;
+    vector<double> array;
+    for(auto position: _blades_polar_position_array)
+    {
+        array.push_back(position[0].y);
+    }
+    dataArrayShow(array,src_show);
+
     return true;
 }

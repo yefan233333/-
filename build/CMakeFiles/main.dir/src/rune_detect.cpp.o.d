@@ -361,5 +361,4 @@ CMakeFiles/main.dir/src/rune_detect.cpp.o: \
  /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
  /home/yefan/OpenCVProject/神符检验/include/blade.h \
  /home/yefan/OpenCVProject/神符检验/include/myFunction.h \
- /home/yefan/OpenCVProject/神符检验/include/myLine.h \
- /home/yefan/OpenCVProject/神符检验/include/myFunction.h
+ /home/yefan/OpenCVProject/神符检验/include/myLine.h

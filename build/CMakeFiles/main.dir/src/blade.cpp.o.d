@@ -360,5 +360,4 @@ CMakeFiles/main.dir/src/blade.cpp.o: \
  /usr/local/include/opencv4/opencv2/video/tracking.hpp \
  /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
  /home/yefan/OpenCVProject/神符检验/include/myFunction.h \
- /home/yefan/OpenCVProject/神符检验/include/myLine.h \
- /home/yefan/OpenCVProject/神符检验/include/myFunction.h
+ /home/yefan/OpenCVProject/神符检验/include/myLine.h

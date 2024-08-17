@@ -219,7 +219,7 @@ bool Rune_detect::print_blades_center(Mat src_show)
 {
     for(auto && blade:_blades)
     {
-        circle(src_show,blade._center,10,Scalar(100,250,100),-1);
+        circle(src_show,blade._center,5,Scalar(100,250,100),-1);
     }
 }
 

@@ -422,7 +422,6 @@ CMakeFiles/main.dir/main.cpp.o
  /home/yefan/OpenCVProject/神符检验/include/blade.h
  /home/yefan/OpenCVProject/神符检验/include/myFunction.h
  /home/yefan/OpenCVProject/神符检验/include/myLine.h
- /home/yefan/OpenCVProject/神符检验/include/myFunction.h
  /home/yefan/OpenCVProject/神符检验/include/runeVideoProcessor.h
 
 CMakeFiles/main.dir/src/blade.cpp.o
@@ -845,7 +844,6 @@ CMakeFiles/main.dir/src/blade.cpp.o
  /usr/local/include/opencv4/opencv2/video/background_segm.hpp
  /home/yefan/OpenCVProject/神符检验/include/myFunction.h
  /home/yefan/OpenCVProject/神符检验/include/myLine.h
- /home/yefan/OpenCVProject/神符检验/include/myFunction.h
 
 CMakeFiles/main.dir/src/myFunction.cpp.o
  /home/yefan/OpenCVProject/神符检验/src/myFunction.cpp
@@ -2531,5 +2529,4 @@ CMakeFiles/main.dir/src/rune_detect.cpp.o
  /home/yefan/OpenCVProject/神符检验/include/blade.h
  /home/yefan/OpenCVProject/神符检验/include/myFunction.h
  /home/yefan/OpenCVProject/神符检验/include/myLine.h
- /home/yefan/OpenCVProject/神符检验/include/myFunction.h
 
