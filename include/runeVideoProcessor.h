@@ -43,6 +43,7 @@ public:
     bool print_blades_num(cv::Mat src_show);
     bool print_rotation_speed(cv::Mat src_show);
     bool blades_polar_position_show(cv::Mat src_show);
+    bool rotation_speed_show(cv::Mat src_show);
 
 
 };

@@ -138,19 +138,22 @@ bool dataArrayShow(vector<double> array, Mat src_show,Scalar color)
 
     int spacing_x = src_show.cols / array.size();
     double max_data = array[0];
+    double min_data = array[0];
     for (auto &&_data : array)
+    {
         if (_data > max_data)
             max_data = _data;
-
-    double spacing_y = 0.7 * src_show.rows / max_data;
-
-    spacing_y = 100;
+        if(_data < min_data)
+            min_data = _data;
+    }
+    double spacing_y = src_show.rows / (max_data - min_data);
 
     vector<Point2f> points_show_array;
+    
     int num = 1;
     for (auto &&data : array)
     {
-        Point2f point(num * spacing_x, data * spacing_y);
+        Point2f point(num * spacing_x, (data - min_data) * spacing_y);
         num++;
         points_show_array.push_back(point);
     }

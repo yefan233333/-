@@ -7,7 +7,7 @@ runeVideoProcessor::runeVideoProcessor()
 {
     _start_flag = false;
     _num = 0;
-    _blades_polar_position_array_size = 100;
+    _blades_polar_position_array_size = 40;
     _rotationCenter = Point2f(0,0);
 }
 
@@ -124,7 +124,7 @@ bool runeVideoProcessor::src_show(std::string winname)
 bool runeVideoProcessor::show(std::string winname)
 {
     Mat img_show = _src.clone();
-    Mat img_dataArray_show = Mat::zeros(_src.size(),CV_8UC3);
+    Mat img_dataArray_show = Mat::zeros(Size(1900,200),CV_8UC3);
     // _rune_detect_last_ptr->print_blades_contour(img_show);
     _rune_detect_last_ptr->print_circle_center(img_show);
     // _rune_detect_last_ptr->print_rotationCenter(img_show);
@@ -133,8 +133,8 @@ bool runeVideoProcessor::show(std::string winname)
     this->print_blades_num(img_show);
     this->print_blades_angle(img_show);
     this->print_rotation_speed(img_show);
-    this->blades_polar_position_show(img_dataArray_show);
-
+    // this->blades_polar_position_show(img_dataArray_show);
+        this->rotation_speed_show(img_dataArray_show);
     // if(_num % 10)
     //     img_show = Scalar(51,51,51);
 
@@ -240,6 +240,15 @@ bool runeVideoProcessor::blades_polar_position_show(cv::Mat src_show)
         array.push_back(position[0].y);
     }
     dataArrayShow(array,src_show);
+
+    return true;
+}
+
+//显示旋转速度
+bool runeVideoProcessor::rotation_speed_show(cv::Mat src_show)
+{
+    if(src_show.empty())return false;
+    dataArrayShow(_rotationSpeed_array,src_show);
 
     return true;
 }

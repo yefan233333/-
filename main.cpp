@@ -112,6 +112,7 @@ void test2()
     vid.open("/home/yefan/桌面/神符检验.avi");
     Mat img;
     runeVideoProcessor rvp;
+
     while(1)
     {
 
