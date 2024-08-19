@@ -7,8 +7,9 @@ runeVideoProcessor::runeVideoProcessor()
 {
     _start_flag = false;
     _num = 0;
-    _blades_polar_position_array_size = 40;
+    _blades_polar_position_array_size = 5;
     _rotationCenter = Point2f(0,0);
+    _blades_rotationCount_array.resize(5);
 }
 
 // 初始化(读取到第一帧合适画面时开始工作)
@@ -95,8 +96,10 @@ bool runeVideoProcessor::read(cv::Mat src)
     _rune_detect_ptr->setBlades();
     _rune_detect_ptr->setRotationCenter();
 
+
     this->setRotationCenter();
     this->setSpeed();
+    this->setRotationFunction();
 
     if (!_start_flag)
     {
@@ -129,6 +132,7 @@ bool runeVideoProcessor::show(std::string winname)
     _rune_detect_last_ptr->print_circle_center(img_show);
     // _rune_detect_last_ptr->print_rotationCenter(img_show);
     _rune_detect_last_ptr->print_blades_center(img_show);
+
     this->print_rotationCenter(img_show);
     this->print_blades_num(img_show);
     this->print_blades_angle(img_show);
@@ -171,17 +175,91 @@ bool runeVideoProcessor::setSpeed()
     auto && it_1 = _blades_polar_position_array[_blades_polar_position_array_size -1].begin();
     auto && it_2 = _blades_polar_position_array[1].begin();
     auto && it_1_end = _blades_polar_position_array[_blades_polar_position_array_size - 1].end();
+
+    int blade_id = 0;
     for(;it_1 != it_1_end;it_1++,it_2++)
     {
         double blade_rotation_speed = ((*it_1).y - (*it_2).y);
-        if(blade_rotation_speed < -3.14)
-            blade_rotation_speed += 6.28;
+        if(blade_rotation_speed < -3.14)    //标志着神符转过临界点
+            {
+                blade_rotation_speed += 6.28;
+                _blades_rotationCount_array[blade_id].push_back(_num);  //将该扇叶经过临界点时的_num值记录下来。
+            }
         rotation_Speed += 0.2 * blade_rotation_speed;
+        blade_id ++;
     }
     _rotationSpeed = rotation_Speed;
     _rotationSpeed_array.push_back(_rotationSpeed);
 
     return true;
+}
+
+bool runeVideoProcessor::setRotationFunction()
+{
+    if(_rotationSpeed_array.size() < 500)return false;
+    //获取频率
+    float frequency;
+    vector<float> arr_double_to_float(_rotationSpeed_array.size());
+    auto && it1 = arr_double_to_float.begin();
+    for(auto && data1:_rotationSpeed_array)
+    {
+        *(it1++) = (float)data1;
+    }
+    Mat dft_src(1,_rotationSpeed_array.size(),CV_32F,arr_double_to_float.data());   //为Mat对象读入数据时，记得要转为float类型
+    Mat dft_dst;
+    dft(dft_src,dft_dst);
+    float max_frequency = 0;
+    float max_dft_dst_data = 0;
+
+    float* dft_dst_p = dft_dst.ptr<float>(0);
+    dft_dst_p++;
+    for(int f = 1;f < dft_dst.cols;f++)
+    {
+        if(max_dft_dst_data < *dft_dst_p)
+        {
+            max_dft_dst_data = *dft_dst_p;
+            max_frequency = f;
+        }
+        dft_dst_p++;
+    }
+    frequency = max_frequency / dft_dst.cols / 2.0 / _blades_polar_position_array_size;     //得到频率。即神符在一帧内走过的周期个数。
+    float omega = frequency * 2 * M_PI;         //得到角速度
+
+    //进行系数矩阵的创建
+    Mat solve_src1 = Mat::zeros(_rotationSpeed_array.size(),3,CV_32F);
+    Mat solve_src2 = Mat::zeros(_rotationSpeed_array.size(),1,CV_32F);
+    double* rotationSpeed_array_p = _rotationSpeed_array.data();
+
+    for(double row = 0;row< solve_src1.rows;row++)
+    {
+        solve_src1.at<float>(row,0) = sin(omega * row);
+        solve_src1.at<float>(row,1) = cos(omega * row);
+        solve_src1.at<float>(row,2) = 1;
+        solve_src2.at<float>(row,0) = (float)*(rotationSpeed_array_p++);
+    }
+
+    Mat solve_dst;
+    solve(solve_src1,solve_src2,solve_dst,cv::DECOMP_SVD);
+    
+    float A = solve_dst.at<float>(0,0);
+    float B = solve_dst.at<float>(1,0);
+    float C = solve_dst.at<float>(2,0);
+
+    float amplitude = sqrt(A*A + B*B);
+    float phase_difference = atan2(B,A);
+    float offset = C;
+
+    cout << "振幅：" << amplitude <<endl;
+    cout << "角频率：" <<omega <<endl;
+    cout << "相位差：" <<phase_difference <<endl;
+    cout << "竖直偏移量：" <<offset <<endl;
+
+
+
+    
+
+    return true;
+
 }
 
 bool runeVideoProcessor::print_rotationCenter(cv::Mat src_show)
@@ -201,7 +279,7 @@ bool runeVideoProcessor::print_blades_angle(cv::Mat src_show)
         return false;
     for(int i = 0;i<5;i++)
     {
-        putText(src_show,to_string((float)_blades_polar_position_array[9][i].y),_blades[i]._center,2,1,Scalar(233,233,100),1);
+        putText(src_show,to_string((float)_blades_polar_position_array[_blades_polar_position_array_size - 1][i].y),_blades[i]._center,2,1,Scalar(233,233,100),1);
     }
     return true;
 }

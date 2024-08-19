@@ -135,8 +135,7 @@ bool dataArrayShow(vector<double> array, Mat src_show,Scalar color)
     if(array.empty())return false;
     if(src_show.empty())return false;
 
-
-    int spacing_x = src_show.cols / array.size();
+    int spacing_x,spacing_y;
     double max_data = array[0];
     double min_data = array[0];
     for (auto &&_data : array)
@@ -146,10 +145,13 @@ bool dataArrayShow(vector<double> array, Mat src_show,Scalar color)
         if(_data < min_data)
             min_data = _data;
     }
-    double spacing_y = src_show.rows / (max_data - min_data);
+    spacing_x = src_show.cols / array.size();
+    spacing_y = src_show.rows / (max_data - min_data);
+    if(spacing_y < 1)spacing_y = 1;
+    if(spacing_x < 1)spacing_x = 1;
 
     vector<Point2f> points_show_array;
-    
+
     int num = 1;
     for (auto &&data : array)
     {
