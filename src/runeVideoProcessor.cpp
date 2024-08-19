@@ -7,7 +7,8 @@ runeVideoProcessor::runeVideoProcessor()
 {
     _start_flag = false;
     _num = 0;
-    _blades_polar_position_array_size = 5;
+    _blades_polar_position_array_size = 30;
+    _getSpeed_n = 10;
     _rotationCenter = Point2f(0,0);
     _blades_rotationCount_array.resize(5);
 }
@@ -73,7 +74,7 @@ void runeVideoProcessor::setBladePosition()
     }
 
     _blades_polar_position_array.push_back(blades_polar_position);
-    if(_blades_polar_position_array.size() > _blades_polar_position_array_size)   //保证双向列表的大小恒为10。
+    if(_blades_polar_position_array.size() > _blades_polar_position_array_size)   //保证双向列表的大小恒定。
     {
         _blades_polar_position_array.pop_front();
     }
@@ -139,6 +140,7 @@ bool runeVideoProcessor::show(std::string winname)
     this->print_rotation_speed(img_show);
     // this->blades_polar_position_show(img_dataArray_show);
         this->rotation_speed_show(img_dataArray_show);
+
     // if(_num % 10)
     //     img_show = Scalar(51,51,51);
 
@@ -170,26 +172,43 @@ bool runeVideoProcessor::setSpeed()
 {   
     if(_blades_polar_position_array.size() < _blades_polar_position_array_size)
         return false;
-    double  rotation_Speed = 0;
 
-    auto && it_1 = _blades_polar_position_array[_blades_polar_position_array_size -1].begin();
-    auto && it_2 = _blades_polar_position_array[1].begin();
-    auto && it_1_end = _blades_polar_position_array[_blades_polar_position_array_size - 1].end();
-
-    int blade_id = 0;
-    for(;it_1 != it_1_end;it_1++,it_2++)
+    vector<double> Gaussian_kernel = generateGaussianKernel(_blades_polar_position_array_size - 1 - _getSpeed_n,15);
+    double speed = 0;
+    for(int i =0;i<5;i++)
     {
-        double blade_rotation_speed = ((*it_1).y - (*it_2).y);
-        if(blade_rotation_speed < -3.14)    //标志着神符转过临界点
+        double angle_1 = 0;
+        double angle_2 = 0;
+
+        //高斯滤波处理
+        for(int num = 0;num < Gaussian_kernel.size(); num ++)
+        {
+            double angle_1_add;
+            double angle_2_add;
+            if(_blades_polar_position_array[num][i].y > _blades_polar_position_array[num + 1 + _getSpeed_n][i].y)
             {
-                blade_rotation_speed += 6.28;
-                _blades_rotationCount_array[blade_id].push_back(_num);  //将该扇叶经过临界点时的_num值记录下来。
+                angle_1_add = Gaussian_kernel[num] * _blades_polar_position_array[num][i].y;
+                angle_2_add = Gaussian_kernel[num] * (_blades_polar_position_array[num + 1 + _getSpeed_n][i].y + 2 * M_PI);  
             }
-        rotation_Speed += 0.2 * blade_rotation_speed;
-        blade_id ++;
+            else
+            {
+                angle_1_add = Gaussian_kernel[num] * _blades_polar_position_array[num][i].y;
+                angle_2_add = Gaussian_kernel[num] * _blades_polar_position_array[num + 1 + _getSpeed_n][i].y;  
+            }
+  
+            angle_1 +=  angle_1_add;
+            angle_2 +=  angle_2_add;
+
+        }
+
+        double speed_add = angle_2 - angle_1;
+        speed += speed_add;
+
     }
-    _rotationSpeed = rotation_Speed;
+
+    _rotationSpeed = speed;
     _rotationSpeed_array.push_back(_rotationSpeed);
+
 
     return true;
 }
@@ -223,7 +242,7 @@ bool runeVideoProcessor::setRotationFunction()
         dft_dst_p++;
     }
     frequency = max_frequency / dft_dst.cols / 2.0 / _blades_polar_position_array_size;     //得到频率。即神符在一帧内走过的周期个数。
-    float omega = frequency * 2 * M_PI;         //得到角速度
+    float omega = frequency * 2 * M_PI;         //得到角频率
 
     //进行系数矩阵的创建
     Mat solve_src1 = Mat::zeros(_rotationSpeed_array.size(),3,CV_32F);

@@ -23,7 +23,8 @@ private:
     std::vector<double> _blades_rotation_Speed; //记录当前五片扇叶的旋转速度
     std::vector<double> _rotationSpeed_array; //记录神符的历史旋转速度
     std::deque<std::vector<cv::Point2f>> _blades_polar_position_array; //存储一段时间内的扇叶中心的极坐标数据，方便计算速度。
-    int _blades_polar_position_array_size;     //_blades_polar_position_array存储双向列表的内容量大小
+    int _blades_polar_position_array_size;     //_blades_polar_position_array存储双向列表的内容量大小(取偶数哦~)
+    int _getSpeed_n;    //表示速度时，所采用的两点之间的图像张数。
     std::vector<std::vector<int>> _blades_rotationCount_array;  //外层vector保存五个扇叶，内vector保存一个扇叶的历史记录。
     void Init();
     void setRotationCenter();
